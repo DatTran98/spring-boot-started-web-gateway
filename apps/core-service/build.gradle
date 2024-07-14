@@ -1,0 +1,24 @@
+
+group = 'vn.dattb'
+version = '0.0.1'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+configurations {
+	configureEach {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-security'
+	}
+}
+
+
