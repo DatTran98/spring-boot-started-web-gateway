@@ -51,14 +51,14 @@ volumes:
       type: 'none'
       o: 'bind'
       device: '/opt/keycloak/data'
-
+#      device: 'C:\\Users\\HLC\\Documents\\docker-mount\\image-data\\keycloak-date'
   mysql-data:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
       device: '/var/lib/mysql'
-
+#      device: 'C:\\Users\\HLC\\Documents\\docker-mount\\image-data\\mysql-data'
 
 networks:
   keycloak-network:

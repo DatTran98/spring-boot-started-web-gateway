@@ -23,19 +23,17 @@ spring:
         http-client:
           type: autodetect
         routes:
-            - id: redirect_route
-              uri: http://localhost:8080
-              predicates:
+          - id: redirect_route
+            uri: http://localhost:8080
+            predicates:
               - Path=/push
-              - Path=/ping-to-core
-              filters:
+            filters:
               - RewritePath=/push, /v1/test/push
-              - RewritePath=/ping-to-core, /v1/test/ping
-            - id: redirect_route2
-              uri: http://localhost:8080
-              predicates:
+          - id: redirect_route2
+            uri: http://localhost:8080
+            predicates:
               - Path=/ping-to-core
-              filters:
+            filters:
               - RewritePath=/ping-to-core, /v1/test/ping
         x-forwarded-request-headers-filter:
           host-enabled: false
