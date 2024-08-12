@@ -19,17 +19,5 @@ public class FilterConfig {
 
         return registrationBean;
     }
-
-//    @Bean
-//    public FilterRegistrationBean<RedirectRequestHeaderFilter> redirectRequestHeaderFilter() {
-//        FilterRegistrationBean<RedirectRequestHeaderFilter> registrationBean = new FilterRegistrationBean<>();
-//
-//        registrationBean.setFilter(new RedirectRequestHeaderFilter());
-//        registrationBean.addUrlPatterns("/*");
-//        registrationBean.setOrder(2);
-//
-//        //add order
-//
-//        return registrationBean;
-//    }
+    
 }

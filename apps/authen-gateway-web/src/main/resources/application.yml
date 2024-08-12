@@ -10,13 +10,16 @@ spring:
       client:
         provider:
           keycloak:
-            issuer-uri: http://localhost:8080/auth/realms/spring-boot-realm
+            issuer-uri: http://localhost:8080/realms/auth-realm
         registration:
           keycloak:
-            client-id: spring-boot-client
-            client-secret: R2Ch7I4ROmyHw2LNA6FRgUptkcOPOLGW
+            client-id: auth-gateway
+            client-secret: Q9EZORTzFm5hBw0aTrLpvaBM0fwqOzWk
             scope: openid, profile, email
-            redirect-uri: http://localhost:8080/*
+            redirect-uri: http://localhost:8081/ping
+      authorizationserver:
+        endpoint:
+          jwk-set-uri: http://localhost:8080/realms/auth-realm/protocol/openid-connect/certs
   cloud:
     gateway:
       mvc:
@@ -24,13 +27,13 @@ spring:
           type: autodetect
         routes:
           - id: redirect_route
-            uri: http://localhost:8080
+            uri: http://localhost:8082
             predicates:
               - Path=/push
             filters:
               - RewritePath=/push, /v1/test/push
           - id: redirect_route2
-            uri: http://localhost:8080
+            uri: http://localhost:8082
             predicates:
               - Path=/ping-to-core
             filters:
@@ -42,10 +45,10 @@ spring:
 
 keycloak:
   auth-server-url: http://localhost:8080/auth
-  realm: spring-boot-realm
-  resource: spring-boot-client
+  realm: auth-realm
+  resource: auth-gateway
   credentials:
-    secret: R2Ch7I4ROmyHw2LNA6FRgUptkcOPOLGW
+    secret: Q9EZORTzFm5hBw0aTrLpvaBM0fwqOzWk
   public-client: false
   ssl-required: external
   use-resource-role-mappings: true
