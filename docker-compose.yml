@@ -39,6 +39,7 @@ services:
       - start-dev
     volumes:
       - keycloak-data:/opt/jboss/keycloak/standalone/data
+      - C:\\Users\\HLC\\Documents\\docker-mount\\image-data\\keycloak-provider\\keycloak-home-idp-discovery24.1.0.jar:/opt/keycloak/providers/keycloak-home-idp-discovery.jar
     networks:
       - keycloak-network
     depends_on:
@@ -52,6 +53,12 @@ volumes:
       o: 'bind'
 #      device: '/opt/keycloak/data'
       device: 'C:\\Users\\HLC\\Documents\\docker-mount\\image-data\\keycloak-date'
+#  provider-data:
+#    driver: local
+#    driver_opts:
+#      type: 'none'
+#      o: 'bind'
+#      device: 'C:\\Users\\HLC\\Documents\\docker-mount\\image-data\\keycloak-provider\\keycloak-home-idp-discovery.jar'
   mysql-data:
     driver: local
     driver_opts:
