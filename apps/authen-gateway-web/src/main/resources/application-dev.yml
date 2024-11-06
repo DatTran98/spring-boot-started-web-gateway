@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: authen-gateway-web
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/vnedoc-auth
+            authorization-uri: http://localhost:8080/realms/vnedoc-auth/protocol/openid-connect/auth
+            token-uri: http://localhost:8080/realms/vnedoc-auth/protocol/openid-connect/token
+            user-info-uri: http://localhost:8080/realms/vnedoc-auth/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8080/realms/vnedoc-auth/protocol/openid-connect/certs
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: vnedoc-auth
+            client-secret: FjeiPI5SmxAk9GO1MLw0lSRvC3RmRvZA
+            scope: openid, profile, email
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8082/ping
+      authorizationserver:
+        endpoint:
+          jwk-set-uri: http://localhost:8080/realms/vnedoc-auth/protocol/openid-connect/certs
+  cloud:
+    gateway:
+      mvc:
+        http-client:
+          type: autodetect
+        routes:
+          - id: redirect_route
+            uri: http://localhost:8082
+            predicates:
+              - Path=/push
+            filters:
+              - RewritePath=/push, /v1/test/push
+          - id: redirect_route2
+            uri: http://localhost:8082
+            predicates:
+              - Path=/ping-to-core
+            filters:
+              - RewritePath=/ping-to-core, /v1/test/ping
+        x-forwarded-request-headers-filter:
+          host-enabled: false
+          for-enabled: false
+          proto-enabled: false
+
+keycloak:
+  auth-server-url: http://localhost:8080
+  realm: vnedoc-auth
+  resource: vnedoc-auth
+  credentials:
+    secret: FjeiPI5SmxAk9GO1MLw0lSRvC3RmRvZA
+  public-client: false
+  ssl-required: external
+  use-resource-role-mappings: true
+
+
+mail:
+  additionalHeaders:
+    X-Mailgun-Dkim: true
+    X-Mailgun-Track: false
+    X-Mailgun-Track-Clicks: false
+    X-Mailgun-Track-Opens: false
+
+

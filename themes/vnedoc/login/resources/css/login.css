@@ -1,0 +1,184 @@
+.login > .main-wrap {
+    min-height: 100vh;
+}
+
+.login .main-inner {
+    max-width: none;
+    padding: 0;
+    padding-bottom: 0;
+    display: flex;
+}
+
+.login-footer {
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 24px;
+    overflow: hidden;
+}
+
+.login-footer .select2-selection__rendered {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.login-main {
+    background: var(--color-brand-gradient);
+    margin: 24px;
+    margin-bottom: 0;
+    width: calc(100% - 48px);
+    border-radius: 24px;
+}
+
+.login-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 24px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* mix-blend-mode: soft-light;
+    opacity: 0.3; */
+    background-image: url(../img/bg.webp);
+    background-size: cover;
+    background-position: center;
+}
+.login-background-video {
+    min-height: 100%;
+}
+.login-main-inner {
+    position: relative;
+    z-index: 2;
+}
+@media (max-width: 480px) {
+    .login-main {
+        margin: 16px;
+        margin-bottom: 0;
+        width: calc(100% - 32px);
+    }
+}
+
+.col-login-banner {
+    width: 460px;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 48px 0;
+}
+
+.swiper-login .swiper-slide {
+    max-width: 100% !important;
+    /* width: auto !important; */
+}
+
+.login-main-inner {
+    flex: 1 0 auto;
+    max-width: 100%;
+}
+
+.login-main-inner > .container,
+.login-main-inner > .container > .row {
+    height: 100%;
+}
+
+.login-banner-img-wrap {
+    padding-top: 76.95%;
+    width: 100%;
+    position: relative;
+}
+
+.login-banner-img-wrap > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+}
+
+.swiper-pagination-line .swiper-pagination {
+    position: static;
+    margin-top: 32px;
+}
+
+.swiper-pagination-line .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-pagination-line .swiper-pagination-bullet {
+    width: auto;
+    max-width: 48px;
+    flex: 1 0 auto;
+    border-radius: 2px;
+    height: 4px;
+    background: linear-gradient(to right, white 50%, transparent 50%);
+    background-size: 200% 100%;
+    position: relative;
+    background-position: right bottom;
+    transition: none;
+    opacity: 1;
+}
+.swiper-pagination-line .swiper-pagination-bullet::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-invert);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    content: "";
+    border-radius: 2px;
+    opacity: 0.3;
+}
+.swiper-pagination-line .swiper-pagination-bullet-active {
+    background-position: left bottom;
+    transition: all 2s ease;
+}
+
+.col-login-form {
+    padding-top: 64px;
+    padding-bottom: 48px;
+}
+
+.login .box__body {
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+@media (max-width: 767px) {
+    .login .box__body {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .col-login-form {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.divider-text {
+    padding: 0 10px;
+    color: #666;
+    font-size: 14px;
+}

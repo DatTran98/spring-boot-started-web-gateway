@@ -7,17 +7,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FilterConfig {
 
-    @Bean
-    public FilterRegistrationBean<AddRequestHeaderFilter> loggingFilter() {
-        FilterRegistrationBean<AddRequestHeaderFilter> registrationBean = new FilterRegistrationBean<>();
-
-        registrationBean.setFilter(new AddRequestHeaderFilter());
-        registrationBean.addUrlPatterns("/*");
-        registrationBean.setOrder(1);
-
-        //add order
-
-        return registrationBean;
-    }
+//    @Bean
+//    public FilterRegistrationBean<AddRequestHeaderFilter> loggingFilter() {
+//        FilterRegistrationBean<AddRequestHeaderFilter> registrationBean = new FilterRegistrationBean<>();
+//
+//        registrationBean.setFilter(new AddRequestHeaderFilter());
+//        registrationBean.addUrlPatterns("/*");
+//        registrationBean.setOrder(1);
+//
+//        //add order
+//
+//        return registrationBean;
+//    }
     
 }
